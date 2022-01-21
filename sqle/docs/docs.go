@@ -2310,6 +2310,38 @@ var doc = `{
                 }
             }
         },
+        "/v1/user_groups/{user_group_name}/": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "delete user group",
+                "tags": [
+                    "user_group"
+                ],
+                "summary": "删除用户组",
+                "operationId": "deleteUserV1",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "user_group_name",
+                        "name": "user_group_name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/controller.BaseRes"
+                        }
+                    }
+                }
+            }
+        },
         "/v1/user_tips": {
             "get": {
                 "security": [

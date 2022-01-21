@@ -52,3 +52,15 @@ type UserGroupListItemResV1 struct {
 func GetUserGroups(c echo.Context) (err error) {
 	return JSONNewNotImplementedErr(c)
 }
+
+// @Summary 删除用户组
+// @Description delete user group
+// @Id deleteUserV1
+// @Tags user_group
+// @Security ApiKeyAuth
+// @Param user_group_name path string true "user_group_name"
+// @Success 200 {object} controller.BaseRes
+// @router /v1/user_groups/{user_group_name}/ [delete]
+func DeleteUserGroup(c echo.Context) error {
+	return JSONNewNotImplementedErr(c)
+}

@@ -82,6 +82,7 @@ func StartApi(net *gracenet.Net, exitChan chan struct{}, config config.SqleConfi
 
 		// user_group
 		v1Router.POST("/user_groups", v1.CreateUserGroup, AdminUserAllowed())
+		v1Router.DELETE("/user_groups/:user_group_name", v1.DeleteUserGroup, AdminUserAllowed())
 
 		// role
 		v1Router.GET("/roles", v1.GetRoles, AdminUserAllowed())

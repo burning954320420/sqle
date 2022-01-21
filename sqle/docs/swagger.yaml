@@ -3107,6 +3107,26 @@ paths:
       summary: 创建用户组
       tags:
       - user_group
+  /v1/user_groups/{user_group_name}/:
+    delete:
+      description: delete user group
+      operationId: deleteUserV1
+      parameters:
+      - description: user_group_name
+        in: path
+        name: user_group_name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.BaseRes'
+      security:
+      - ApiKeyAuth: []
+      summary: 删除用户组
+      tags:
+      - user_group
   /v1/user_tips:
     get:
       description: get user tip list
