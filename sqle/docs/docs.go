@@ -2247,6 +2247,30 @@ var doc = `{
             }
         },
         "/v1/user_groups": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "get user group info list",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user_group"
+                ],
+                "summary": "获取用户组列表",
+                "operationId": "getUserGroupListV1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/v1.GetUserGroupsResV1"
+                        }
+                    }
+                }
+            },
             "post": {
                 "security": [
                     {
@@ -4463,6 +4487,28 @@ var doc = `{
                 }
             }
         },
+        "v1.GetUserGroupsResV1": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "example": 0
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/v1.UserGroupListItemResV1"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "example": "ok"
+                },
+                "total_nums": {
+                    "type": "integer"
+                }
+            }
+        },
         "v1.GetUserLoginResV1": {
             "type": "object",
             "properties": {
@@ -5257,6 +5303,23 @@ var doc = `{
                 },
                 "user_name": {
                     "type": "string"
+                }
+            }
+        },
+        "v1.UserGroupListItemResV1": {
+            "type": "object",
+            "properties": {
+                "group_desc": {
+                    "type": "string"
+                },
+                "group_name": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "is_disabled": {
+                    "type": "boolean"
                 }
             }
         },
